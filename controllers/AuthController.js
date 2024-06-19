@@ -6,9 +6,8 @@ const redisClient = require('../utils/redis');
 const { v4 } = require('uuid');
 const dbClient = require('../utils/db');
 
-
 class AuthController {
-  static async getConnect(req, res) {
+  static async getConnect (req, res) {
     const authzHeader = getAuthzHeader(req);
     if (!authzHeader) {
       res.status(401).json({ error: 'Unauthorized' });
@@ -45,7 +44,7 @@ class AuthController {
     res.end();
   }
 
-  static async getDisconnect(req, res) {
+  static async getDisconnect (req, res) {
     const token = req.headers['x-token'];
     if (!token) {
       res.status(401).json({ error: 'Unauthorized' });
@@ -68,7 +67,7 @@ class AuthController {
     res.status(204).end();
   }
 
-  static async getMe(req, res) {
+  static async getMe (req, res) {
     const token = req.headers['x-token'];
     if (!token) {
       res.status(401).json({ error: 'Unauthorized' });
